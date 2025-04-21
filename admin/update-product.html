@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Product</title>
+    <link rel="stylesheet" href="/assets/css/admin.css" />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <script src="/assets/js/admin/auth-admin.js"></script>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="navbar">
+        <div>
+          <h2><a href="index.html">Book Store</a></h2>
+        </div>
+        <div class="navmenu">
+          <ul>
+            <li><a href="add-product.html">Create</a></li>
+            <li><a href="#">Categories</a></li>
+            <li><a href="#">About</a></li>
+          </ul>
+          <div class="search-box">
+            <input type="search" class="search" placeholder="search here..." />
+          </div>
+          <ul class="navlink">
+            <li id="login-link"><a href="/login.html">Login</a></li>
+            <li id="register-link"><a href="/register.html">Register</a></li>
+            <li id="avatar-link" style="display: none">
+              <img
+                id="avatar-icon"
+                src="/assets/images/avatar.png"
+                alt="Avatar"
+                style="width: 24px; height: 24px; border-radius: 50%"
+              />
+              <span id="username"></span>
+            </li>
+            <li id="logout-link" style="display: none">
+              <a href="#">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <div class="container">
+      <div class="form-container">
+        <h2>Thêm Sản Phẩm</h2>
+        <form id="updateProductForm">
+          <div class="form-group">
+            <label for="name">Tên sản phẩm</label>
+            <input type="text" id="name" required />
+          </div>
+
+          <div class="form-group">
+            <label for="desc">Mô tả</label>
+            <textarea id="desc" required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="price">Giá (VNĐ)</label>
+            <input type="number" id="price" required />
+          </div>
+
+          <div class="form-group">
+            <label for="stock">Số lượng</label>
+            <input type="number" id="stock" required />
+          </div>
+
+          <div class="form-group">
+            <label for="product-image">Image URL</label>
+            <input
+              type="file"
+              id="product-image"
+              class="form-control"
+              accept="image/"
+            />
+          </div>
+
+          <img
+            id="image-preview"
+            src="#"
+            alt="Image preview"
+            style="
+              display: none;
+              max-width: 200px;
+              margin-top: 10px;
+              border-radius: 8px;
+            "
+          />
+
+          <button class="submit-btn" type="submit">Cập nhật</button>
+        </form>
+      </div>
+    </div>
+    <script src="/assets/js/admin/update-product.js"></script>
+    <script src="/assets/js/image-preview.js"></script>
+    <script src="/assets/js/main.js"></script>
+  </body>
+</html>
