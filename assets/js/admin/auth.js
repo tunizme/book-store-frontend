@@ -21,13 +21,13 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      const data = await response.json();
+      const res = await response.json();
 
-      localStorage.setItem("token", data.token);
-      localStorage.setItem("role", data.user.role);
-      localStorage.setItem("username", data.user.name);
+      localStorage.setItem("token", res.data.token);
+      localStorage.setItem("role", res.data.user.role);
+      localStorage.setItem("username", res.data.user.name);
 
-      if (data.user.role === "admin") {
+      if (res.data.user.role === "admin") {
         window.location.href = "admin/index.html";
       } else {
         window.location.href = "index.html";

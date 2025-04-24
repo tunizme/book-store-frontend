@@ -10,8 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const urlParams = new URLSearchParams(window.location.search);
   const productId = urlParams.get("id");
 
-  let currentImage = "";
-
   if (!productId) {
     alert("Thiếu ID sản phẩm.");
     return;
@@ -24,13 +22,13 @@ document.addEventListener("DOMContentLoaded", () => {
       );
       const product = await res.json();
 
-      nameInput.value = product.name || "";
-      descInput.value = product.description || "";
-      priceInput.value = product.price || "";
-      stockInput.value = product.stock || "";
-      if (product.image_url) {
-        currentImage = product.image_url;
-        imagePreview.src = product.image_url;
+      nameInput.value = product.data.name || "";
+      descInput.value = product.data.description || "";
+      priceInput.value = product.data.price || "";
+      stockInput.value = product.data.stock || "";
+      if (product.data.image_url) {
+        currentImage = product.data.image_url;
+        imagePreview.src = product.data.image_url;
         imagePreview.style.display = "block";
       }
     } catch (error) {
@@ -53,8 +51,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const imageFile = imageInput.files[0];
     if (imageFile) {
       formData.append("image", imageFile);
-    } else {
-      formData.append("image", currentImage);
     }
 
     try {
@@ -70,9 +66,10 @@ document.addEventListener("DOMContentLoaded", () => {
       );
 
       const data = await res.json();
-
       if (!res.ok) {
-        alert("Cập nhật thất bại: " + (data.message || "Lỗi không xác định"));
+        alert(
+          "Cập nhật thất bại: " + (data.data.message || "Lỗi không xác định")
+        );
         return;
       }
 

@@ -16,8 +16,8 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       return response.json();
     })
-    .then((product) => {
-      displayProductDetail(product);
+    .then((res) => {
+      displayProductDetail(res.data);
     })
     .catch((error) => {
       console.error(error);
@@ -38,13 +38,13 @@ function displayProductDetail(product) {
   <div class="product-info">
     <h2>${product.name ?? "Không có tên"}</h2>
     <p class="desc">${product.description ?? "Chưa có mô tả"}</p>
-    <p class="price">
-      ${
-        product.price
-          ? parseFloat(product.price).toLocaleString() + "đ"
-          : "Chưa có giá"
-      }
-    </p>
+    <p class="price">${
+      product.price
+        ? Math.round(product.price)
+            .toString()
+            .replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+        : "Chưa có giá"
+    }<sup>₫</sup></p>
     <button class="add-to-cart-btn">Thêm vào giỏ</button>
   </div>
 </div>

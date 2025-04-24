@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Book Store</title>
     <link rel="stylesheet" href="/assets/css/style.css" />
     <link rel="stylesheet" href="/assets/css/user.css" />
   </head>
@@ -26,13 +26,14 @@
             <li id="login-link"><a href="/login.html">Login</a></li>
             <li id="register-link"><a href="/register.html">Register</a></li>
             <li id="avatar-link" style="display: none">
-              <img
-                id="avatar-icon"
-                src="/assets/images/avatar.png"
-                alt="Avatar"
-                style="width: 24px; height: 24px; border-radius: 50%"
-              />
-              <span id="username"></span>
+              <div class="user-info">
+                <img
+                  id="avatar-icon"
+                  src="/assets/images/avatar.png"
+                  alt="Avatar"
+                />
+                <span id="username"></span>
+              </div>
             </li>
             <li id="logout-link" style="display: none">
               <a href="#">Logout</a>
@@ -44,6 +45,7 @@
 
     <div class="container">
       <div id="product-list" class="cards product-list"></div>
+      <div id="pagination" class="pagination"></div>
     </div>
 
     <footer class="footer">
